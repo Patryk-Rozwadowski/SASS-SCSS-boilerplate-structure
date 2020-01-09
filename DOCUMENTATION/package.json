@@ -1,0 +1,22 @@
+{
+  "name": "sassBoilerplate",
+  "version": "1.0.0",
+  "description": "Documentation for sass files",
+  "main": "index.scss",
+  "scripts": {
+    "sassdoc:save": "sassdoc ../"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Patryk-Rozwadowski/SASS-SCSS-boilerplate-structure.git"
+  },
+  "author": "Patryk Rozwadowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Patryk-Rozwadowski/SASS-SCSS-boilerplate-structure/issues"
+  },
+  "homepage": "https://github.com/Patryk-Rozwadowski/SASS-SCSS-boilerplate-structure#readme",
+  "dependencies": {
+    "sassdoc": "^2.7.1"
+  }
+}
