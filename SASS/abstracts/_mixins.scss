@@ -1,0 +1,166 @@
+/// Mixin for easy breakpoint manipulation
+/// @group RWD
+/// @param {String} $breakpoint key from breakpoints map
+/// @example scss - Basic usage
+/// .foo {
+///   font-size: 16px;
+///   @include for-device(small) {
+///     font-size: 14px;
+/// }
+@mixin for-device($breakpoint: 'lg') {
+  @media screen and (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+/// Helper mixin to center element horizontally
+/// @group Centerer's
+/// @author Patryk Rozwadowski
+@mixin margin-auto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/// Helper mixin to center container by
+/// position absolute. The parent should
+/// have position relative in this situation.
+/// @group Centerer's
+/// @author Patryk Rozwadowski
+@mixin abs-centerer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/// Helper mixin to center elements by using flex
+/// @group Centerer's
+/// @author Patryk Rozwadowski
+@mixin flex-centerer($direction: null) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @if ($direction) {
+    flex-direction: column;
+  } @else {
+    flex-direction: $direction;
+  }
+}
+
+/// Uproght centerer
+/// @group Centerer's
+@mixin flex-center-updown($direction: null) {
+  display: flex;
+  align-items: center;
+  @if ($direction) {
+    flex-direction: column;
+  } @else {
+    flex-direction: $direction;
+  }
+}
+
+/// Custom position generator
+/// @group position's
+/// @param {String} $position - define position type
+/// @param {String} $top - direction
+/// @param {String} $right - direction
+/// @param {String} $bottom - direction
+/// @param {String} $left - direction
+/// @author Patryk Rozwadowski
+/// @example - Basic usage:
+/// .foo {
+///   @include position(absolute, 10px, 0, 50px, 15px);
+/// }
+@mixin position($position: 'block', $top: null, $right: null, $bottom: null, $left: null) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+/// Quick and easy mixin for elements size manipulation
+/// For square just give $width value
+/// @group Elements props
+/// @param {String} $width
+/// @param {String} $height
+/// @author Patryk Rozwadowski
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Mixin for containers where we want to use it
+/// in "grid" way
+/// @group Grid
+/// @param {Number} $size - size calculated in %
+/// @param {Number} $columns - number of columns
+/// @param {Number} $gap - number in px for padding col gap
+/// @example
+/// .foo {
+///   @include span(8, 12, 5px);
+/// }
+@mixin span($size, $columns: $grid-columns) {
+  width: $size / $columns * 100%;
+  box-sizing: border-box;
+}
+
+/// For quick margin/padding
+/// @group Elements props
+/// @param {String} $mg - Margin
+/// @param {String} $pd - Padding
+@mixin margin-padding($mg: null, $pd: null) {
+  margin: $mg;
+  padding: $pd;
+}
+
+/// Mixin for easy creating various fonts
+/// @group Fonts
+/// @param {String} $family Font-family
+/// @param {Number} $size Font-size
+/// @param {String} $weight font-weight
+/// @param {String} $color Color font
+/// @author Patryk Rozwadowski
+/// @example Basic usage:
+/// .foo {
+///   @include create-font('text-secondary', 2em, $font-weight-text, 'text-primary')
+/// }
+@mixin create-font($color: 'primary', $font-family: 'primary', $font-size: 1em, $font-weight: $font-weight-text, $color: 'text-primary') {
+  display: inline-block;
+  color: totoo-color($color);
+  font-family: font-pick($font-family), sans-serif;
+  font-size: $font-size;
+  font-weight: $font-weight;
+}
+
+/// Mixin for fast and easy creating container
+/// @group Container
+/// @param {String} $display - display
+/// @param {Number} $width - container width
+/// @param {Number} $height - container height
+/// @param {Boolean} $center - center elements in container
+/// @param {String} $direction - flex-direction
+/// @author Patryk Rozwadowski
+/// @example
+/// .foo {
+/// @include create-container('flex', $vw-100, $vh-100, true);
+/// };
+/// @todo add if statetment for width: 100% full and height
+@mixin create-container($display: 'block', $width: null, $height: $width, $center: false, $direction: null) {
+  @include size($width, $height);
+  display: $display;
+  @if ($display == 'flex' and $center) {
+    @include flex-centerer;
+  } @else if ($display == 'flex' and $direction) {
+    flex-direction: $direction;
+  }
+}
+
+
+/// Mixin for full screen
+/// @author Patryk Rozwadowski
+@mixin full-screen {
+  width: $vw-100;
+  height: $vh-100;
+}

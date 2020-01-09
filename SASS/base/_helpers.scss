@@ -1,0 +1,16 @@
+.f-center {
+  @include flex-centerer(true);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.container {
+  @include size($width: $vw-100, $height: $vh-100);
+}

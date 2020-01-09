@@ -1,0 +1,92 @@
+@import url();
+
+// =========================
+// FONT
+// =========================
+//
+$font-size-text:
+$font-weight-text:
+$font-weight-text-fat:
+
+$font-size-title:
+$font-size-title-big:
+$font-weight-title:
+
+$font-size-subtitle:
+$font-size-subtitle-big:
+$font-weight-subtitle:
+
+$font-size-btn:
+$font-weight-btn-register:
+
+$font-size-link-nav:
+$font-weight-link-nav:
+
+// =========================
+// SIZES
+// =========================
+$nav-height: 50px;
+$button-height: 40px;
+
+// =========================
+// COLORS
+// =========================
+$color-interval: 20% !global;
+$totoo-colors: (
+        'primary': #,
+        'secondary': #,
+        'text-primary': #,
+        'text-secondary': #,
+        'background': #,
+        'accent': #,
+        'warning': #,
+        'info': #,
+        'transparent': rgba(0, 0, 0, 0.20)
+);
+
+
+// =========================
+// FONTS
+// @type map
+// @group variables
+// =========================
+$fonts-stack: (
+        primary: #{'FONT_FAMILY', sans-serif},
+        secondary: #{'FONT_FAMILY', sans-serif}
+);
+
+// =========================
+// BREAKPOINTS
+// =========================
+$breakpoints: (
+        'sm': 768px,
+        'md': 980px,
+        'lg': 1280px
+);
+
+// =========================
+// Z-INDEX LAYERS
+// =========================
+$layers: (
+        modal: 2000,
+        overlay: 1000,
+        header: 900,
+        menu: 800,
+        tooltip: 100,
+        text: 1
+);
+
+// =========================
+// UTILS
+// ========================
+$border-radius: 3px;
+
+$grid-columns: 12;
+
+$golden-ratio: 1.618;
+
+$vw-100: 100vw;
+$vh-100: 100vh;
+
+$transition-time: 350ms;
+

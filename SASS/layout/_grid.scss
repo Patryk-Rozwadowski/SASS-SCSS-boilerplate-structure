@@ -1,0 +1,26 @@
+.grid-3-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 55px;
+  align-items: center;
+  margin-top: $nav-height;
+}
+
+@for $i from 1 through $grid-columns {
+  .lg-#{$i} {
+    @include span($i);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .md#{$i} {
+    @include span($i);
+  }
+}
+
+@for $i from 1 through $grid-columns {
+  .sm#{$i} {
+    @include span($i);
+  }
+}
